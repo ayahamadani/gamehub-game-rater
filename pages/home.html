@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <title>GameHub</title>
+</head>
+<body>
+    <div id="body">
+        <nav>
+            <h1>GameHub</h1>
+            <div>
+                <input type="text" placeholder="search for a game...">
+                <div id="user-icon-container">
+                    <i class="fa-solid fa-user hover"></i>
+                </div>
+            </div>
+        </nav>
+        <div id="posters-container">
+            <div id="poster-container">
+                <script>
+                    fetch('http://localhost:5000/api/games')
+                        .then(res => res.json())
+                        .then(response => {
+                            if (response.success) {
+                                const games = response.data;
+                                console.log(response.data);
+                                const container = document.getElementById('poster-container');
+                
+                                games.forEach(game => {
+                                    // Create elements
+                                    const imgElement = document.createElement('img');
+                                    const imgContainer = document.createElement('div');
+                                    const paragraphContainer = document.createElement('div');
+                                    const gameTitle = document.createElement('p');
+                                    const gameGenre = document.createElement('p');
+                
+                                    // Add CSS classes
+                                    imgContainer.classList.add("individual-poster-container");
+                                    gameTitle.classList.add("poster-title");
+                                    paragraphContainer.classList.add("game-descriptions");
+                                    gameGenre.classList.add("game-genre");
+                
+                                    // Set content
+                                    imgElement.src = game.url;
+                                    imgElement.alt = game.title;
+                                    gameTitle.innerText = game.title;
+                                    gameGenre.innerText = game.genre;
+                
+                                    // Append elements to container
+                                    imgContainer.appendChild(imgElement);
+                                    imgContainer.appendChild(paragraphContainer);
+                                    paragraphContainer.appendChild(gameTitle);
+                                    paragraphContainer.appendChild(gameGenre);
+                                    container.appendChild(imgContainer);
+                                });
+                            } else {
+                                console.error('Failed to fetch games:', response);
+                            }
+                        })
+                        .catch(error => console.error('Error fetching games', error));
+                </script>                
+            </div>
+        </div>
+    </div>
+
+    <section>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>Welcome to GameRater, the ultimate destination for gamers to discover, review, and rate their favorite games! Whether you're a casual player or a hardcore enthusiast, we provide a platform for you to share your opinions, explore detailed reviews, and find your next gaming adventure.<br>
+                    Our mission is to build a community-driven hub where gamers can connect, celebrate the best in gaming, and help others make informed decisions. From retro classics to the latest AAA titles, your voice matters here at GameRater.<br>
+                    Join us in creating the definitive guide to the gaming world! 🎮</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank">Facebook</a>
+                    <a href="https://twitter.com" target="_blank">Twitter</a>
+                    <a href="https://instagram.com" target="_blank">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2024 Your Website. All rights reserved.</p>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/06f62c6876.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+body {
+    background-image: url("../images/yone2.jpg");
+    background-position: center; /* Center the image for better responsiveness */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100vw;
+    height: auto;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#body-container {
+    display: flex;
+    justify-content: end;
+    height: 100vh;
+    align-items: center;
+    padding: 1em;
+    box-sizing: border-box; /* Ensures padding is included in dimensions */
+}
+
+#user-info-container {
+    background: linear-gradient(135deg, rgb(49, 49, 67), rgb(49, 67, 67));
+    width: 35em;
+    max-width: 90%; /* Ensures the container doesn't overflow on smaller screens */
+    display: flex;
+    align-self: center;
+    margin-right: 3em;
+    border-radius: 15px;
+    box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.3);
+    padding: 2em; /* Unified padding */
+    flex-direction: column;
+}
+
+input {
+    all: unset;
+    width: 90%;
+    height: 2.5em;
+    padding-left: 0.5em;
+    box-sizing: border-box;
+    color: azure;
+    border-radius: 3px;
+    border: 1px solid rgba(125, 121, 137, 0.3); /* Add a border for better visibility */
+}
+
+.padding-bottom-2 {
+    padding-bottom: 1em;
+}
+
+.padding-bottom-1 {
+    padding-bottom: 0.5em;
+}
+
+.margin-bottom-1 {
+    margin-bottom: 0.1em;
+    background-color: rgba(125, 121, 137, 0.3);
+}
+
+button {
+    width: 12em;
+    height: 2.3em;
+    border: none;
+    border-radius: 3px;
+    margin: 1.5em 0;
+    background-color: azure;
+    color: rgb(49, 49, 67);
+}
+
+button:hover {
+    background-color: rgb(207, 219, 219);
+    transition: background-color 0.1s ease-in-out;
+}
+
+.switch-user-method {
+    display: flex;
+    align-items: end;
+    font-size: 0.8em;
+    justify-content: end;
+    padding: 0 3px 3px 0;
+    height: 2em;
+}
+
+.switch-p {
+    padding-right: 2em;
+    color: rgb(172, 162, 162);
+}
+
+.switch-p:hover {
+    transition: color 0.1s ease;
+    color: rgb(203, 192, 192);
+    text-decoration: underline;
+}
+
+.username-warning-p,
+.password-warning-p {
+    font-size: 0.8em;
+    color: rgb(200, 211, 211);
+    margin-bottom: 1.5em;
+}
+
+.none {
+    display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    #body-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+    }
+
+    #user-info-container {
+        width: 30em;
+        margin: 1em 0;
+    }
+
+    button {
+        width: 10em;
+        margin: 1.5em 0;
+    }
+}
+
+@media (max-width: 768px) {
+    #user-info-container {
+        width: 80%;
+        padding: 1.5em;
+    }
+
+    button {
+        width: 8em;
+        margin: 1.5em 0;
+    }
+
+    input {
+        font-size: 0.9em;
+    }
+
+    .switch-user-method {
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 480px) {
+    #user-info-container {
+        width: 90%;
+        padding: 1em;
+    }
+
+    button {
+        width: 100%;
+        margin: 1.5em 0;
+    }
+
+    input {
+        font-size: 0.8em;
+        height: 2.2em;
+    }
+
+    .username-warning-p,
+    .password-warning-p {
+        font-size: 0.7em;
+    }
+
+    .switch-user-method {
+        font-size: 0.6em;
+    }
+}

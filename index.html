@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="./assets/css/global.css">
+    <title>GameHub</title>
+</head>
+<body>
+   <div id="body-container">
+    <div id="user-info-container">
+        <form style="width: 70%; display: flex; flex-direction: column;" id="login">
+            <h1 class="azure padding-bottom-2">GameHub</h2>
+            <p class="azure padding-bottom-1">Sign in with account name</p>
+            <input type="text" name="" id="username-login-input" class="margin-bottom-1"/>
+            <p class="azure padding-bottom-1">Password</p>
+            <input type="password" name="" id="password-login-input" class="margin-bottom-1"/>
+            <button class="hover" id="sign-in-btn">Sign In</button>
+        </form>
+        
+        <form style="width: 70%; display: none; flex-direction: column;" id="sign-up">
+            <h1 class="azure padding-bottom-2">GameHub</h2>
+            <p class="azure padding-bottom-1">Create a username</p>
+            <input type="text" name="" id="username-sign-up-input" class="margin-bottom-1"/>
+            <p id="username-warning-p" class="none">Username should be at least 4 alphanumerical characters</p>
+            <p class="azure padding-bottom-1">Create a password</p>
+            <input type="password" name="" id="password-sign-up-input" class="margin-bottom-1"/>
+            <p id="password-warning-p" class="none">Password should be at least 4 alphanumerical characters</p>
+            <button class="hover" id="sign-up-btn">Sign Up</button>
+        </form>
+        <div class="switch-user-method">
+            <p class="switch-p hover">Dont have an account? Sign up!</p>
+        </div>      
+    </div>
+   </div>
+   <script src="assets/js/user-login.js"></script>
+</body>
+</html>

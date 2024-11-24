@@ -1,0 +1,213 @@
+body {
+    background-color: rgb(49, 49, 67);
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    width: 100%;
+    height: 6em;
+    background-color: rgb(29, 29, 44);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+    box-sizing: border-box;
+}
+
+nav input {
+    all: unset;
+    background: azure;
+    height: 2.5em;
+    border-radius: 20px;
+    padding-left: 1em;
+    margin-right: 1em;
+    width: 15em;
+}
+
+h1 {
+    background: linear-gradient(20deg, azure, rgb(121, 89, 131));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3em;
+    padding: 0 1em;
+}
+
+h1:hover {
+    cursor: default;
+}
+
+#poster-container {
+    padding: 3em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3em;
+}
+
+#posters-container { 
+    width: 100%;
+    background-color: rgb(49, 49, 67);
+}
+
+#poster-container img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.fa-user {
+    color: azure;
+    font-size: 1.4em;
+    padding: 0.5em 0.6em;
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+}
+
+#user-icon-container {
+    border: solid rgb(20, 20, 29) 1px;
+    margin-right: 2.5em;
+    border-radius: 25px;
+    background-color: rgb(20, 20, 29);
+}
+
+.individual-poster-container {  
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgb(29, 29, 44);
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.individual-poster-container img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    display: block;
+    margin-top: 1.3em;
+    align-self: center;
+}
+
+.individual-poster-container:hover img {
+    transform: scale(1.05); 
+}
+
+.poster-title {
+    color: azure;
+    font-size: 1.1em;
+    margin-top: 15px; 
+    margin-bottom: 0px; 
+    text-align: left;
+}
+
+.game-descriptions { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-left: 1.5em;
+}
+
+.game-descriptions p {
+    margin-top: 15px;
+}
+
+.game-genre {
+    color: rgb(155, 167, 167);
+    margin-bottom: 0.3em;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 1em 0;
+    }
+
+    nav input {
+        width: 12em;
+        margin-bottom: 0.5em;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        padding: 0.5em 0;
+    }
+
+    .fa-user {
+        font-size: 1.2em;
+    }
+
+    #poster-container {
+        padding: 2em;
+        gap: 2em;
+    }
+
+    .individual-poster-container img {
+        width: 90%;
+        height: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav input {
+        width: 10em;
+    }
+
+    h1 {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    #poster-container {
+        padding: 1.5em;
+        gap: 1.5em;
+    }
+
+    .poster-title {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 1em;
+    }
+
+    nav input {
+        width: 100%;
+        margin: 0.5em 0;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    #poster-container {
+        padding: 1em;
+        gap: 1em;
+    }
+
+    .poster-title {
+        font-size: 0.8em;
+    }
+
+    .individual-poster-container img {
+        width: 100%;
+        height: auto;
+    }
+}
