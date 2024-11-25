@@ -6,27 +6,29 @@
     <link rel="stylesheet" href="../assets/css/home.css">
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/game.css">
     <title>GameHub</title>
 </head>
-<body>
-    <div id="body">
-        <nav>
-            <h1 class="website-title">GameHub</h1>
-            <div>
-                <input type="text" placeholder="search for a game...">
-                <div id="user-icon-container">
-                    <i class="fa-solid fa-user hover"></i>
-                </div>
-            </div>
-        </nav>
-        <div id="posters-container">
-            <div id="poster-container">              
+
+<body id="body">
+    <nav>
+        <h1 class="website-title">GameHub</h1>
+        <div>
+            <input type="text" placeholder="search for a game...">
+            <div id="user-icon-container">
+                <i class="fa-solid fa-user hover"></i>
             </div>
         </div>
+    </nav>
+
+    <div id="loader" style="color: azure;">
+        <h1>Loading</h1>
     </div>
 
-    <section>
-    </section>
+    <div id="game-container">
+        <div id="comment-section"></div>
+    </div>
+    
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -58,6 +60,10 @@
         <p>&copy; 2024 Your Website. All rights reserved.</p>
     </footer>
 
+    <script>
+        
+    </script>
+    <script src="../assets/js/game.js"></script>
     <script src="../assets/js/home.js"></script>
     <script src="https://kit.fontawesome.com/06f62c6876.js" crossorigin="anonymous"></script>
 </body>

@@ -28,8 +28,16 @@ exports.getGames = async (req, res) => {
 // @desc Get a single game
 // @route GET /api/games/:id
 // @access Public
-exports.getGame = (req, res) => {
-    res.status(200).json({ success: true, msgs: `Show one game ${req.params.id}`});
+exports.getGame = async (req, res) => {
+    const games = await Game.find();
+    const gameId = req.params.id;
+    const game = games.find(g => g.title.toLowerCase().replace(/\s+/g, '-') === gameId.toLowerCase());
+
+    if (game) {
+        res.status(200).json({ success: true, data: game });
+    } else {
+        res.status(404).json({ success: false, message: "Game not found" });
+    }
 }
 
 // @desc Check User
