@@ -1,9 +1,20 @@
-fetch('http://localhost:5000/api/games')
+const searchBar = document.getElementById("search-bar");
+const searchForm = document.getElementById("search-form");
+const container = document.getElementById('poster-container');
+
+searchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    renderGames(searchBar.value);
+});
+
+const renderGames = (search) => {
+    fetch(`http://localhost:5000/api/games?search=${search}`)
     .then(res => res.json())
     .then(response => {
         if (response.success) {
             const games = response.data;
-            const container = document.getElementById('poster-container');
+            container.innerHTML = "";
 
             games.forEach(game => {
                 // Create a slug from the game title for the URL
@@ -43,3 +54,6 @@ fetch('http://localhost:5000/api/games')
         }
     })
     .catch(error => console.error('Error fetching games', error));
+};
+
+renderGames();

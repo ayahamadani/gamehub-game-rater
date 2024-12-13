@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getGames, getGame, checkUser, addUser} = require('../controllers/games');
-const { Game, User} = require('../models/games');
+const { Game } = require('../models/games');
 
 router.route('/auth/login').post(checkUser);
 

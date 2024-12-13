@@ -10,7 +10,14 @@ app.use(express.json());
 // @access Public
 exports.getGames = async (req, res) => {
     try {
-        const games = await Game.find();
+        const search = req.query.search;
+
+        // Build the query object
+        const query = !!search && search !== "undefined" ? {title: { $regex: search, $options: "i"}} : {};
+        console.log(query);
+
+        const games = await Game.find(query);
+
         res.status(200).json({
             success: true,
             data: games
