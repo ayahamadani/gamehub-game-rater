@@ -25,8 +25,10 @@ function showLoading() {
 }
 
 function hideLoading() {
-    loadingStateDiv.style.display = 'none';
-    container.style.display = 'flex';
+    setTimeout(() => {
+        loadingStateDiv.style.display = 'none';
+        container.style.display = 'flex';
+    }, 200);
 }
 
 if (gameSlug) {

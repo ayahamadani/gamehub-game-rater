@@ -43,6 +43,7 @@ changeMethod.addEventListener("click", () => {
     signUpPage = !signUpPage;
 });
 
+// Logging in into account
 signInForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -58,12 +59,15 @@ signInForm.addEventListener("submit", async (e) => {
     });
 
     const result = await response.json();
-    if(result.success)
-        window.location.replace('pages/home.html');
-    else
+    if(result.success) {
+        // Save current user in local storage
+        localStorage.setItem("user", username);
+        window.location.replace('home.html');
+    } else
         alert(result.message);
 });
 
+// Create user
 signUpForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -100,7 +104,8 @@ signUpForm.addEventListener("submit", async (e) => {
 
     const result = await response.json();
     if(result.success) {
-        window.location.replace('pages/home.html');
+        window.location.replace('home.html');
+        localStorage.setItem("user", username);
     } else {
         alert(result.message);
     }

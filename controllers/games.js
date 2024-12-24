@@ -1,6 +1,7 @@
 const { User, Game } = require('../models/games');
 const express = require('express');
 const app = express();
+const bcrypt = require('bcrypt');
 
 // Middleware to parse incoming JSON bodies
 app.use(express.json());
@@ -14,7 +15,6 @@ exports.getGames = async (req, res) => {
 
         // Build the query object
         const query = !!search && search !== "undefined" ? {title: { $regex: search, $options: "i"}} : {};
-        console.log(query);
 
         const games = await Game.find(query);
 
@@ -60,7 +60,9 @@ exports.checkUser = async (req, res) => {
             return res.status(400).json({ success: false, message: "User not found" });
         }
 
-        if (user.password !== password) {
+        const isMatch = await bcrypt.compare(password, user.password);
+
+        if (!isMatch) {
             return res.status(400).json({ success: false, message: "Wrong password" });
         }
 
@@ -87,12 +89,17 @@ exports.addUser = async (req, res) => {
 
        if(existingUsername) return res.status(400).send({ message: 'Username already exists'});
 
-        const newUser = new User({ username, password });
+        // Hash the password
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        const newUser = new User({ username, password: hashedPassword });
 
         await newUser.save();
 
-        res.status(201).send({ message: 'User added successfully!', user: newUser});
+        res.status(201).send({ message: 'User added successfully!', user: newUser, success: true});
     } catch (error) {
+        console.log('Generated hashed password:', hashedPassword);
         console.error(error);
         res.status(500).send({ message: 'Error saving data', error});
     }

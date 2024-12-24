@@ -15,39 +15,45 @@
             <form action="" id="search-form">
                 <div>
                     <input type="text" placeholder="search for a game..." id="search-bar">
-                    <div id="user-icon-container">
-                        <i class="fa-solid fa-user hover"></i>
+                    <div style="display: flex; flex-direction: column; align-items: baseline; row-gap: 0.5em; margin-right: 2em;">
+                        <div id="user-icon-container">
+                            <i class="fa-solid fa-user hover"></i>
+                        </div>
+                        <div class="log-out-btn">Log out</div>
                     </div>
                 </div>
             </form>
         </nav>
         <div id="posters-container">
+            <section class="container">
+                <div class="slider-wrapper">
+                    <div class="slider">
+                        <img id="slide-1" src="../assets/images/banners/Ivan.jpg" alt="Alien-Stage-Banner">
+                        <img id="slide-2" src="../assets/images/banners/skyrim-banner.jpg" alt="Skyrim-Banner">
+                        <img id="slide-3" src="../assets/images/banners/lies-of-p.jpeg" alt="LOP-Banner">
+                        <img id="slide-4" src="../assets/images/banners/high-noon-yone.jpg" alt="High-Noon-Banner">
+                    </div>
+                    <div class="slider-nav">
+                        <a class="inactive"></a>
+                        <a class="inactive"></a>
+                        <a class="inactive"></a>
+                        <a class="inactive"></a>
+                    </div>
+                </div>
+            </section>
+
+            <div id="loader" style="color: azure;">
+                <div class="loader"></div>
+                <h1>Loading</h1>
+            </div>
+
             <div id="poster-container">              
             </div>
         </div>
     </div>
 
-    <section>
-    </section>
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h4>About Us</h4>
-                <p>Welcome to GameRater, the ultimate destination for gamers to discover, review, and rate their favorite games! Whether you're a casual player or a hardcore enthusiast, we provide a platform for you to share your opinions, explore detailed reviews, and find your next gaming adventure.<br>
-                    Our mission is to build a community-driven hub where gamers can connect, celebrate the best in gaming, and help others make informed decisions. From retro classics to the latest AAA titles, your voice matters here at GameRater.<br>
-                    Join us in creating the definitive guide to the gaming world! 🎮</p>
-            </div>
-
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
-            </div>
-
             <div class="footer-section">
                 <h4>Follow Us</h4>
                 <div class="social-icons">
