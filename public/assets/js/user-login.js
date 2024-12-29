@@ -50,7 +50,7 @@ signInForm.addEventListener("submit", async (e) => {
     username = document.getElementById("username-login-input").value;
     password = document.getElementById("password-login-input").value;
 
-    const response = await fetch('http://localhost:5000/auth/login', {
+    const response = await fetch('/auth/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ signUpForm.addEventListener("submit", async (e) => {
         return;
     }
 
-    const response = await fetch('http://localhost:5000/auth/register', {
+    const response = await fetch('/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -34,7 +34,7 @@ function hideLoading() {
 
 const renderGames = (search) => {
     showLoading();
-    fetch(`http://localhost:5000/api/games?search=${search}`)
+    fetch(`/api/games?search=${search}`)
         .then(res => res.json())
         .then(response => {
             if (response.success) {
