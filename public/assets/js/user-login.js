@@ -59,10 +59,10 @@ signInForm.addEventListener("submit", async (e) => {
     });
 
     const result = await response.json();
-    if(result.success) {
+    if (result.success) {
         // Save current user in local storage
         localStorage.setItem("user", username);
-        window.location.replace('home.html');
+        window.location.replace('/home');
     } else
         alert(result.message);
 });
@@ -76,7 +76,7 @@ signUpForm.addEventListener("submit", async (e) => {
     username = document.getElementById("username-sign-up-input").value;
     password = document.getElementById("password-sign-up-input").value;
 
-    const usernameRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]{4,}$/; 
+    const usernameRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]{4,}$/;
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]{4,}$/;
 
     if (!passwordRegex.test(password) && !usernameRegex.test(username)) {
@@ -86,14 +86,14 @@ signUpForm.addEventListener("submit", async (e) => {
 
     if (!usernameRegex.test(username)) {
         alert("Please fill out the username input properly.");
-        return; 
+        return;
     }
 
     if (!passwordRegex.test(password)) {
         alert("Please fill out the password input properly.");
         return;
     }
-    
+
     const response = await fetch('http://localhost:5000/auth/register', {
         method: 'POST',
         headers: {
@@ -103,8 +103,8 @@ signUpForm.addEventListener("submit", async (e) => {
     });
 
     const result = await response.json();
-    if(result.success) {
-        window.location.replace('home.html');
+    if (result.success) {
+        window.location.replace('/home');
         localStorage.setItem("user", username);
     } else {
         alert(result.message);

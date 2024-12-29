@@ -1,15 +1,9 @@
 const express = require('express');
-const router = express.Router();
-const { getGames, getGame, checkUser, addUser} = require('../controllers/games');
-const { Game } = require('../models/games');
+const gameRouter = express.Router();
+const { getGames, getGame } = require('../../controllers/games');
 
-router.route('/auth/login').post(checkUser);
-
-router.route('/auth/register').post(addUser);
-
-router.route('/api/games').get(getGames);
-
-router.route('/api/games/:id').get(getGame);
+gameRouter.get("/", getGames);
+gameRouter.get("/:id", getGame);
 
 const games = [
     {
@@ -141,13 +135,4 @@ const games = [
 ];
 
 
-Game.insertMany(games)
-    .then(() => {
-        console.log("Games added successfully!");
-    })
-    .catch((error) => {
-        console.error("Error adding games:", error);
-    });
-
-
-module.exports = router;
+module.exports = gameRouter;
